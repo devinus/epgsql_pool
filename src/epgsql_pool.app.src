@@ -1,0 +1,7 @@
+{application, epgsql_pool, [
+    {description, "Pooled epgsql connections using Poolboy"},
+    {vsn, "0.1.0"},
+    {applications, [kernel, stdlib]},
+    {registered, []},
+    {mod, {epgsql_pool, []}}
+]}.
