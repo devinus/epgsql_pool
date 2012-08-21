@@ -12,10 +12,10 @@ start_link(Args) ->
     gen_server:start_link(?MODULE, Args, []).
 
 squery(Worker, Sql) ->
-    gen_server:call(Worker, {squery, Sql}).
+    gen_server:call(Worker, {squery, Sql}, infinity).
 
 equery(Worker, Stmt, Params) ->
-    gen_server:call(Worker, {equery, Stmt, Params}).
+    gen_server:call(Worker, {equery, Stmt, Params}, infinity).
 
 init(Args) ->
     Hostname = proplists:get_value(hostname, Args),
