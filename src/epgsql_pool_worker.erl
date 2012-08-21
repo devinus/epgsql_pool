@@ -22,8 +22,10 @@ init(Args) ->
     Database = proplists:get_value(database, Args),
     Username = proplists:get_value(username, Args),
     Password = proplists:get_value(password, Args),
+    Timeout = proplists:get_value(timeout, Args),
     {ok, Conn} = pgsql:connect(Hostname, Username, Password, [
-        {database, Database}
+        {database, Database},
+        {timeout, Timeout}
     ]),
     {ok, #state{conn=Conn}}.
 
